@@ -1,0 +1,443 @@
+/* ---------- Header ---------- */
+.hdr {
+  padding: 14px var(--gutter) 24px;
+}
+.hdr__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
+  gap: 12px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  transition: transform var(--t-press) var(--ease);
+}
+.avatar:active {
+  transform: scale(0.95);
+}
+
+/* ---------- Bands ---------- */
+.band {
+  position: relative;
+  padding: 18px var(--gutter) 22px;
+}
+.band--flush {
+  padding-left: 0;
+  padding-right: 0;
+}
+.band--panel {
+  background: var(--panel);
+  color: #fff;
+}
+.band--cobalt {
+  background: var(--cobalt);
+  color: #fff;
+}
+.band--panel .M {
+  color: var(--panel-text-2);
+}
+.band--cobalt .M {
+  color: var(--cobalt-soft);
+}
+.rule--ink {
+  border-top: 1px solid var(--ink);
+}
+.rule--rule {
+  border-top: 1px solid var(--rule);
+}
+
+.sechead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin-bottom: 14px;
+}
+.band--flush .sechead {
+  padding: 0 var(--gutter);
+}
+
+.labelrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 20px;
+}
+
+/* ---------- Stat strip ---------- */
+.stats {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  margin: 0;
+}
+.stats__cell {
+  padding: 12px 0 2px 14px;
+  border-left: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.stats__cell:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.band--panel .stats__cell {
+  border-left-color: var(--panel-rule);
+}
+.band--panel .stats__cell:first-child {
+  border-left: 0;
+}
+.stats dd {
+  margin: 0;
+}
+.stats__val {
+  font-size: clamp(24px, 8vw, 30px);
+}
+.stats--lg .stats__val {
+  font-size: clamp(30px, 10.5vw, 42px);
+}
+
+/* ---------- Numbered rows ---------- */
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.row {
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  align-items: center;
+  column-gap: 12px;
+  min-height: 62px;
+  padding: 10px var(--gutter);
+  border-top: 1px solid var(--rule);
+  width: 100%;
+  position: relative;
+  text-align: left;
+}
+.rows > li:last-child .row {
+  border-bottom: 1px solid var(--rule);
+}
+.row__num {
+  font-size: 15px;
+  letter-spacing: 0;
+  color: var(--ink-2);
+}
+.row__name {
+  font-weight: 650;
+  font-size: 16px;
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+}
+.row__main {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.row__val {
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  text-align: right;
+}
+
+/* ---------- Segmented ---------- */
+.seg {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  background: var(--chalk-2);
+  border-radius: 999px;
+  padding: 4px;
+  min-height: 52px;
+}
+.seg__thumbwrap {
+  position: absolute;
+  inset: 4px;
+  pointer-events: none;
+}
+.seg__thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(100% / var(--n));
+  background: var(--ink);
+  border-radius: 999px;
+  transition:
+    transform 550ms var(--ease),
+    opacity var(--t-fade) var(--ease);
+  will-change: transform;
+}
+.seg__opt {
+  position: relative;
+  z-index: 1;
+  min-height: 44px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 12.5px;
+  text-align: center;
+  color: var(--ink);
+  transition:
+    color var(--t-fade) var(--ease),
+    transform var(--t-press) var(--ease);
+}
+.seg__opt:active {
+  transform: scale(0.97);
+}
+.seg__opt[aria-pressed='true'] {
+  color: #fff;
+}
+
+/* ---------- Pill buttons ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  border: 1.5px solid transparent;
+  transition:
+    transform var(--t-press) var(--ease),
+    opacity var(--t-fade) var(--ease);
+}
+.pill:active {
+  transform: scale(0.975);
+}
+.pill:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.pill--block {
+  width: 100%;
+  min-height: 58px;
+}
+.pill--coral {
+  background: var(--coral);
+  color: var(--ink);
+}
+.pill--ink {
+  background: var(--ink);
+  color: #fff;
+}
+.pill--white {
+  background: #fff;
+  color: var(--ink);
+}
+.pill--outline {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.pill--outline-light {
+  border-color: rgba(255, 255, 255, 0.75);
+  color: #fff;
+}
+.pill__arrow {
+  display: inline-block;
+  transition: transform var(--t-fade) var(--ease);
+}
+.pill:hover .pill__arrow {
+  transform: translateX(5px);
+}
+
+/* ---------- Bars ---------- */
+.bar {
+  position: relative;
+  height: 6px;
+  background: var(--rule-soft);
+  overflow: hidden;
+}
+.bar--thin {
+  height: 4px;
+}
+.band--panel .bar {
+  background: var(--panel-2);
+}
+.band--cobalt .bar {
+  background: var(--cobalt-2);
+}
+.bar__fill {
+  position: absolute;
+  inset: 0;
+}
+.bar__fill--cobalt {
+  background: var(--cobalt);
+}
+.bar__fill--cobalt-light {
+  background: var(--cobalt-light);
+}
+.bar__fill--coral {
+  background: var(--coral);
+}
+.bar__fill--white {
+  background: #fff;
+}
+.bar__fill--ok {
+  background: var(--ok);
+}
+
+/* ---------- Expander ---------- */
+.expander {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 550ms var(--ease);
+}
+.expander.is-open {
+  grid-template-rows: 1fr;
+}
+.expander__inner {
+  overflow: hidden;
+  min-height: 0;
+  opacity: 0;
+  transition: opacity var(--t-fade) var(--ease);
+}
+.expander.is-open .expander__inner {
+  opacity: 1;
+}
+
+.chev {
+  transition: transform 450ms var(--ease);
+}
+[aria-expanded='true'] .chev {
+  transform: rotate(180deg);
+}
+
+/* ---------- Ghost/text button ---------- */
+.textbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 44px;
+  font-weight: 650;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
+
+/* ---------- Pulsing dot ---------- */
+.pulse {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: none;
+}
+.pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: currentColor;
+  animation: ping 1.8s var(--ease) infinite;
+}
+.sechead > .M {
+  white-space: nowrap;
+}
+
+/* ---------- Gender switch ---------- */
+.gsw__head {
+  margin-bottom: 10px;
+}
+
+/* Small inline tag, e.g. RURAL */
+.tag {
+  display: inline-block;
+  padding: 1px 6px;
+  margin-left: 6px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  vertical-align: 2px;
+}
+.tag--rural {
+  color: var(--ok);
+}
+.band--panel .tag--rural {
+  color: var(--ok-on-dark);
+}
+
+/* Compact pill for row actions; still a 44px target */
+.pill--sm {
+  height: 44px;
+  padding: 0 16px;
+  font-size: 13px;
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  transition: transform var(--t-press) var(--ease), background-color var(--t-fade) var(--ease), color var(--t-fade) var(--ease);
+}
+.pill--sm[aria-pressed='true'] {
+  background: var(--ink);
+  color: #fff;
+}
+.pill--sm {
+  white-space: nowrap;
+  flex: none;
+}
+
+/* Lane markers move a full-width wrapper with translate3d; clip its empty
+   box so it never widens the page. The dot itself sits inside the row gutter. */
+.rows {
+  overflow-x: clip;
+}
+
+/* Sport beside an athlete's name */
+.sporttag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  padding: 2px 7px 2px 5px;
+  border-radius: 999px;
+  background: var(--cobalt-soft);
+  color: var(--cobalt);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  vertical-align: 2px;
+  white-space: nowrap;
+}
+.sporttag__icon {
+  width: 12px;
+  height: 12px;
+  flex: none;
+}
+.band--panel .sporttag,
+.band--cobalt .sporttag {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+.sporttag.pp__sport,
+.sporttag.acct__sport,
+.sporttag.bd__sport {
+  margin-left: 0;
+  align-self: flex-start;
+}
+.sporttag.pp__sport {
+  margin-right: 8px;
+}

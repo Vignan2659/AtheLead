@@ -1,0 +1,130 @@
+/* Train for your sport: sport picker, needs, photo exercise rows. */
+
+.dr__group + .dr__group {
+  margin-top: 14px;
+}
+.dr__sports {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.dr__sport {
+  background: transparent;
+  color: #fff;
+  border: 1px solid var(--panel-rule);
+  gap: 6px;
+}
+.dr__sport[aria-pressed='true'] {
+  background: #fff;
+  color: var(--ink);
+  border-color: #fff;
+}
+.dr__age {
+  margin-top: 16px;
+}
+
+.dr__need {
+  color: inherit;
+  text-decoration: none;
+}
+.dr__anchor {
+  scroll-margin-top: 12px;
+}
+
+.dr__row {
+  grid-template-columns: 72px 1fr auto;
+  min-height: 72px;
+  gap: 12px;
+}
+.dr__thumb {
+  width: 72px;
+  height: 54px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: var(--chalk-2);
+  display: block;
+}
+.dr__thumb--icon {
+  display: grid;
+  place-items: center;
+  color: var(--cobalt);
+  background: var(--cobalt-soft);
+}
+.dr__thumb--icon .dr__picto {
+  width: 32px;
+  height: 32px;
+}
+
+.dr__detail {
+  padding: 4px var(--gutter) 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dr__frames {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.dr__frames img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--chalk-2);
+  display: block;
+}
+.dr__frames figcaption {
+  margin-top: 4px;
+}
+.dr__frames--icon {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  padding: 18px 0;
+  border-radius: 8px;
+  background: var(--cobalt-soft);
+  color: var(--cobalt);
+}
+.dr__frames--icon .dr__picto {
+  width: 72px;
+  height: 72px;
+}
+.dr__frames--icon figcaption {
+  color: var(--ink-2);
+}
+
+.dr__young {
+  margin: 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--coral);
+  background: var(--chalk-2);
+  font-size: 14px;
+  font-weight: 500;
+}
+.dr__cues,
+.dr__rules {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 15px;
+}
+.dr__line {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+.dr__rules {
+  margin-top: 10px;
+  color: #fff;
+}
+.dr__credit {
+  margin: 14px 0 0;
+  color: var(--panel-text-2);
+}
+.dr__link {
+  margin-top: 12px;
+}

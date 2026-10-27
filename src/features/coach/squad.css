@@ -1,0 +1,209 @@
+.sq__strip {
+  padding-top: 4px;
+  padding-bottom: 16px;
+}
+
+.sq__ready {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin: 16px 0 14px;
+}
+.sq__readynum {
+  font-size: clamp(76px, 26vw, 104px);
+  line-height: 0.8;
+  letter-spacing: -4px;
+}
+.sq__readytxt {
+  font-size: 14px;
+  font-weight: 550;
+  color: var(--panel-text-2);
+  padding-bottom: 4px;
+}
+.sq__readybar {
+  position: relative;
+}
+.sq__readybar .bar {
+  height: 10px;
+}
+.sq__tick {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 2px;
+  margin-left: -1px;
+  background: #fff;
+}
+.sq__phases {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.sq__filter {
+  padding: 0 var(--gutter) 14px;
+}
+.sq__row {
+  grid-template-rows: auto auto;
+  row-gap: 0;
+  padding-bottom: 14px;
+}
+.sq__lane {
+  grid-column: 2 / 4;
+}
+.sq__cascade {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  animation: rise 550ms var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 55ms);
+}
+
+/* ---------- SLM band ---------- */
+.sq__slmhead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sq__slmtitle {
+  font-size: clamp(26px, 8.6vw, 34px);
+  line-height: 0.95;
+  letter-spacing: -1px;
+  margin: 14px 0 12px;
+}
+.sq__reason {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--cobalt-soft);
+}
+.sq__swap {
+  display: grid;
+  margin-top: 18px;
+  min-height: 52px;
+}
+.sq__layer {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 8px, 0);
+  transition:
+    opacity var(--t-fade) var(--ease),
+    transform 450ms var(--ease),
+    visibility 0s linear var(--t-fade);
+}
+.sq__layer.is-on {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity var(--t-fade) var(--ease) 120ms,
+    transform 450ms var(--ease) 120ms,
+    visibility 0s;
+}
+.sq__layer .pill {
+  flex: 1;
+  padding: 0 14px;
+}
+.sq__layer .pill:last-child {
+  flex: 1.5;
+}
+.sq__done {
+  justify-content: space-between;
+}
+.sq__donetxt {
+  font-size: 16px;
+  font-weight: 650;
+}
+.sq__done .textbtn {
+  color: #fff;
+  padding: 0 4px;
+}
+
+/* ---------- 2036 pathway ---------- */
+.sq__stage {
+  grid-template-rows: auto auto;
+  min-height: 56px;
+  padding-bottom: 12px;
+}
+.sq__stage .sq__lane {
+  margin-top: 8px;
+}
+.sq__closest {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px var(--gutter) 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ---------- Adjust plans ---------- */
+.sq__plan {
+  grid-template-rows: auto auto;
+  row-gap: 8px;
+  padding-bottom: 14px;
+}
+.sq__plan::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--chalk-3);
+  opacity: 0;
+  transition: opacity var(--t-fade) var(--ease);
+  pointer-events: none;
+}
+.sq__plan.is-on::before {
+  opacity: 1;
+}
+.sq__plan > * {
+  position: relative;
+}
+.sq__change {
+  grid-column: 2 / 4;
+  font-size: 14.5px;
+  font-weight: 550;
+  line-height: 1.35;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sq__plan.is-on .sq__sent {
+  color: var(--cobalt);
+}
+.sq__apply {
+  min-width: 88px;
+}
+
+/* ---------- Stage 3: requests + board recommendations ---------- */
+.tag--ask {
+  margin-left: 8px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--coral);
+  color: var(--ink) !important;
+  vertical-align: 2px;
+}
+.sq__plan.is-asked {
+  isolation: isolate;
+}
+.sq__plan.is-asked::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--chalk-3);
+  z-index: -1;
+}
+.sq__rec {
+  margin-top: 10px;
+  align-self: flex-start;
+  min-height: 46px;
+  font-size: 14px;
+  padding: 0 20px;
+}
+.sq__recstate {
+  margin-top: 10px;
+  min-height: 20px;
+}

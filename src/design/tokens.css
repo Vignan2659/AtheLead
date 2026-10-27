@@ -1,0 +1,52 @@
+:root {
+  /* Surfaces */
+  --chalk: #eef0eb;
+  --chalk-2: #e0e3dc;
+  --chalk-3: #e4e7e0;
+  --rule: #c9cec4;
+  --rule-soft: #d6dad2;
+
+  /* Ink */
+  --ink: #10140f;
+  --ink-2: #545a52;
+  --ink-3: #5f665c;
+
+  /* Dark bands */
+  --panel: #10140f;
+  --panel-2: #232921;
+  --panel-3: #343b31;
+  --panel-rule: #2c3329;
+  --panel-text-2: #a9b0a6;
+
+  /* Accents */
+  --cobalt: #2b3cff;
+  --cobalt-2: #4a58ff;
+  --cobalt-soft: #d7dbff;
+  --cobalt-light: #8f99ff;
+  --coral: #ff6b4a;
+  /* Coral for small text on chalk: 4.9:1 */
+  --coral-ink: #b83a18;
+
+  /* Status */
+  --ok: #1f7a4d;
+  --warn: #a04a00;
+  --bad: #c0262d;
+  --ok-on-dark: #7fe0a8;
+  --warn-on-dark: #f5b935;
+  --bad-on-dark: #ff8a9a;
+  --safe-zone: #bfe3ce;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-press: 250ms;
+  --t-fade: 350ms;
+  --t-move: 600ms;
+  --t-draw: 1000ms;
+
+  /* Layout */
+  --gutter: 20px;
+  --nav-h: 76px;
+  --col: 480px;
+
+  --font: 'Archivo', 'Noto Sans Tamil', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}

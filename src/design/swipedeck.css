@@ -1,0 +1,64 @@
+.deck {
+  position: relative;
+  height: calc(var(--deck-h, 268px) + 28px);
+  touch-action: pan-y;
+}
+.deck__card {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: var(--deck-h, 268px);
+  border-radius: 28px;
+  background: var(--panel);
+  color: #fff;
+  overflow: hidden;
+  transform-origin: 50% 100%;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  will-change: transform;
+}
+.deck__card:active {
+  cursor: grabbing;
+}
+.deck__card .M {
+  color: var(--panel-text-2);
+}
+.deck__shade {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+.deck__stamp {
+  position: absolute;
+  top: 22px;
+  z-index: 4;
+  padding: 6px 10px;
+  border: 2px solid currentColor;
+  border-radius: 6px;
+  font-size: 12px !important;
+  letter-spacing: 0.14em !important;
+  opacity: 0;
+  pointer-events: none;
+}
+.deck__card .deck__stamp--yes {
+  right: 20px;
+  color: var(--ok-on-dark);
+  transform: rotate(8deg);
+}
+.deck__card .deck__stamp--no {
+  left: 20px;
+  color: var(--bad-on-dark);
+  transform: rotate(-8deg);
+}
+.deck__card .deck__stamp--up {
+  left: 50%;
+  translate: -50% 0;
+  color: var(--cobalt-soft);
+}
+.deck__card .M.tone-coral {
+  color: var(--coral);
+}

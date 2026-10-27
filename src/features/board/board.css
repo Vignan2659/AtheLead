@@ -1,0 +1,291 @@
+.bd__hero {
+  margin-top: 18px;
+}
+.bd__counter {
+  display: block;
+  font-size: clamp(66px, 24vw, 96px);
+  line-height: 0.85;
+  letter-spacing: -4px;
+  color: var(--cobalt);
+}
+.bd__sub {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 550;
+}
+.bd__yoy {
+  font-weight: 750;
+  font-size: 13px;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+.bd__strip {
+  padding-top: 4px;
+  padding-bottom: 16px;
+}
+
+/* ---------- Decide ---------- */
+.bd__face {
+  position: relative;
+  height: 100%;
+  padding: 22px 22px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.bd__ctitle {
+  font-size: clamp(22px, 6.8vw, 28px);
+  line-height: 0.95;
+  letter-spacing: -1px;
+  margin: 18px 0 12px;
+}
+.bd__creason {
+  font-size: 14.5px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--panel-text-2);
+}
+.bd__owner {
+  margin-top: auto;
+  color: #fff !important;
+}
+
+.bd__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 8px;
+  margin-top: 14px;
+  transition: opacity var(--t-fade) var(--ease);
+}
+.bd__actions .pill {
+  min-width: 0;
+  padding: 0 10px;
+  font-size: 14px;
+}
+.bd__actions.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.bd__msg {
+  min-height: 18px;
+  margin-top: 12px;
+  text-align: center;
+  color: var(--ink);
+}
+.bd__empty {
+  height: 296px;
+  border: 1.5px dashed var(--ink-2);
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.bd__clear {
+  font-size: 34px;
+  letter-spacing: -1px;
+}
+
+/* ---------- Team form ---------- */
+.bd__form {
+  grid-template-rows: auto auto;
+  padding-bottom: 14px;
+}
+.bd__formbar {
+  grid-column: 2 / 4;
+  margin-top: 10px;
+}
+
+/* ---------- Rising fastest ---------- */
+.bd__rising {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(150px, 44%);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.bd__rising::-webkit-scrollbar {
+  display: none;
+}
+.bd__riser {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 16px 18px var(--gutter);
+  border-left: 1px solid var(--rule);
+}
+.bd__riser:first-child {
+  border-left: 0;
+}
+.bd__pot {
+  font-size: 60px;
+  line-height: 0.85;
+  letter-spacing: -2.5px;
+  color: var(--cobalt);
+  margin-bottom: 6px;
+}
+
+/* ---------- Mission 2036 funnel ---------- */
+.bd__funnel {
+  margin: 14px calc(var(--gutter) * -1) 0;
+}
+.bd__funnel .row {
+  border-top-color: var(--panel-rule);
+  grid-template-rows: auto auto;
+  min-height: 56px;
+  padding-bottom: 12px;
+}
+.bd__funnel > li:last-child .row {
+  border-bottom-color: var(--panel-rule);
+}
+.bd__funnel .row__num {
+  color: var(--panel-text-2);
+}
+.bd__target {
+  margin-top: 16px;
+}
+.bd__target .bar {
+  margin-top: 10px;
+  height: 10px;
+}
+
+/* ---------- Funnel, men | women ---------- */
+.bd__fhead,
+.bd__fstep {
+  grid-template-columns: 38px 1fr 64px 64px;
+}
+.bd__fhead {
+  display: grid;
+  column-gap: 12px;
+  margin-top: 14px;
+  padding-bottom: 8px;
+}
+.bd__fcol {
+  text-align: right;
+  white-space: nowrap;
+}
+.bd__key {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: 0;
+}
+.bd__key--m {
+  background: var(--cobalt);
+}
+.bd__key--w {
+  background: var(--coral);
+}
+.bd__funnel {
+  margin-top: 0;
+}
+.bd__fval {
+  font-size: 17px;
+  letter-spacing: -0.3px;
+  text-align: right;
+}
+.bd__fbars {
+  grid-column: 2 / 5;
+  display: grid;
+  gap: 4px;
+  margin-top: 10px;
+}
+.bd__fnote {
+  margin-top: 10px;
+}
+.bd__targets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 16px;
+  border-top: 1px solid var(--panel-rule);
+}
+.bd__targets .bd__target {
+  margin-top: 0;
+  padding: 14px 14px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bd__targets .bd__target + .bd__target {
+  padding-left: 14px;
+  border-left: 1px solid var(--panel-rule);
+}
+.bd__tnum {
+  font-size: 34px;
+  letter-spacing: -1px;
+}
+.bd__tnum small {
+  font-size: 16px;
+  color: var(--panel-text-2);
+  letter-spacing: 0;
+}
+
+/* ---------- From the villages ---------- */
+.bd__lede {
+  padding: 0 var(--gutter) 14px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  max-width: 40ch;
+}
+.bd__village {
+  grid-template-rows: auto auto;
+  row-gap: 10px;
+  padding-bottom: 12px;
+  align-items: start;
+}
+.bd__village::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--chalk-3);
+  opacity: 0;
+  transition: opacity var(--t-fade) var(--ease);
+  pointer-events: none;
+}
+.bd__village.is-on::before {
+  opacity: 1;
+}
+.bd__village > * {
+  position: relative;
+}
+.bd__village .row__num,
+.bd__village .row__val {
+  padding-top: 2px;
+}
+.bd__vtrend {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0;
+  text-align: right;
+  margin-top: 4px;
+}
+.bd__vfoot {
+  grid-column: 2 / 4;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.bd__village.is-on .bd__vfoot .M {
+  color: var(--cobalt);
+}
+
+.bd__pp {
+  align-self: flex-start;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--cobalt);
+}

@@ -1,0 +1,141 @@
+.chart {
+  margin: 0;
+}
+.chart__readout {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-height: 34px;
+}
+.chart__val {
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+.chart__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  touch-action: pan-y;
+}
+.chart__svg--radar {
+  max-width: 320px;
+  margin: 0 auto;
+}
+.chart__grid {
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+.chart__area {
+  fill: var(--cobalt);
+  opacity: 0.08;
+  animation: fade-in 900ms var(--ease) 300ms backwards;
+}
+.chart__line {
+  fill: none;
+  stroke: var(--cobalt);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  animation: chart-draw var(--t-draw) var(--ease) backwards;
+}
+@keyframes chart-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.chart__cross {
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+.chart__dot {
+  fill: var(--cobalt);
+  stroke: var(--chalk);
+  stroke-width: 2;
+}
+.chart__axis {
+  font-size: 10px;
+  font-weight: 600;
+  fill: var(--ink-2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.chart__axis.is-on {
+  fill: var(--ink);
+}
+.chart__ref {
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 2;
+  stroke-dasharray: 4 4;
+}
+.chart__you {
+  fill: color-mix(in srgb, var(--cobalt) 14%, transparent);
+  stroke: var(--cobalt);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.chart__grow {
+  animation: chart-scale 800ms var(--ease) 150ms backwards;
+}
+@keyframes chart-scale {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+.chart__legend {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.chart__legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.chart__key {
+  width: 18px;
+  height: 0;
+  border-top: 2px solid var(--cobalt);
+}
+.chart__key--ref {
+  border-top: 2px dashed var(--ink-3);
+}
+.chart__radarnote {
+  text-align: center;
+  min-height: 22px;
+  font-size: 14px;
+}
+.chart__table {
+  margin-top: 8px;
+}
+.chart__table summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.chart__table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.chart__table th,
+.chart__table td {
+  text-align: left;
+  padding: 6px 0;
+  border-top: 1px solid var(--rule-soft);
+  font-weight: 500;
+}
+.chart__table td {
+  text-align: right;
+}

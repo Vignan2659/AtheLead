@@ -1,0 +1,237 @@
+.td__ready {
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 11px;
+}
+.td__note {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 550;
+  color: var(--ink-2);
+  min-height: 20px;
+}
+
+/* ---------- Exercise rows ---------- */
+.td__ex {
+  isolation: isolate;
+  transition: transform var(--t-press) var(--ease);
+}
+.td__ex:active {
+  transform: scale(0.985);
+}
+.td__ex::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--chalk-3);
+  opacity: 0;
+  transition: opacity var(--t-fade) var(--ease);
+  z-index: -1;
+}
+.td__ex.is-done::before {
+  opacity: 1;
+}
+.td__numcell {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center start;
+}
+.td__num,
+.td__check {
+  position: absolute;
+  left: 0;
+  transition:
+    transform 500ms var(--ease),
+    opacity var(--t-fade) var(--ease);
+}
+.td__num {
+  top: 50%;
+  translate: 0 -50%;
+}
+.td__check {
+  top: 3px;
+  transform: scale(0) rotate(-60deg);
+  opacity: 0;
+}
+.td__ex.is-done .td__num {
+  transform: scale(0.4);
+  opacity: 0;
+}
+.td__ex.is-done .td__check {
+  transform: none;
+  opacity: 1;
+}
+.td__strike {
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: 55%;
+  height: 2px;
+  background: var(--coral);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 450ms var(--ease);
+}
+.td__ex.is-done .td__strike {
+  transform: scaleX(1);
+}
+.td__ex.is-done .row__name {
+  color: var(--ink-2);
+}
+
+/* ---------- Coach band ---------- */
+.td__coach {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 10px 0 6px;
+}
+.td__why {
+  color: #fff;
+}
+.td__factors {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.td__factors .labelrow {
+  margin-bottom: 6px;
+}
+.td__flabel {
+  font-size: 14px;
+  font-weight: 550;
+}
+.td__fw {
+  font-size: 16px;
+}
+.td__fine {
+  margin: 14px 0 2px;
+}
+
+/* ---------- Fuel / match duo ---------- */
+.td__duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.td__duocell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 0 20px;
+  min-width: 0;
+}
+.td__duocell + .td__duocell {
+  border-left: 1px solid var(--rule);
+  padding-left: 16px;
+}
+.td__duocell:first-child {
+  padding-right: 16px;
+}
+.td__big {
+  font-size: clamp(26px, 8vw, 36px);
+  white-space: nowrap;
+  letter-spacing: -1px;
+  margin-top: 4px;
+}
+.td__duocell .bar,
+.td__count {
+  margin-top: 8px;
+}
+.td__count {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.td__seg {
+  height: 6px;
+  background: var(--rule-soft);
+}
+.td__seg.is-on {
+  background: var(--cobalt);
+}
+
+/* ---------- Road to 2036 ---------- */
+.td__games {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.td__gamesnum {
+  font-size: clamp(40px, 13vw, 52px);
+  letter-spacing: -2px;
+  color: var(--cobalt);
+  white-space: nowrap;
+}
+.td__gamesnum small {
+  font-size: 0.42em;
+  letter-spacing: 0;
+  margin-left: 2px;
+}
+.td__path {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  margin: 18px 0 0;
+  border-top: 1px solid var(--rule);
+}
+.td__path > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 12px 14px 0;
+  border-left: 1px solid var(--rule);
+  min-width: 0;
+}
+.td__path > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.td__path dd {
+  margin: 0;
+}
+.td__pathnum {
+  font-size: 28px;
+  white-space: nowrap;
+}
+.td__delta {
+  font-size: 13px;
+  letter-spacing: 0;
+}
+.td__next {
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.td__journey {
+  margin-top: 14px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ---------- Ask coach ---------- */
+.td__ask {
+  margin: 14px 0 6px;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+}
+.band--cobalt .M.td__asked {
+  color: #fff;
+}
+
+.td__wb {
+  margin-top: 12px;
+}

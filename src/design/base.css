@@ -1,0 +1,122 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  background: var(--chalk);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input {
+  font: inherit;
+  color: inherit;
+}
+
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 2px;
+}
+.on-cobalt :focus-visible,
+.band--cobalt :focus-visible {
+  outline-color: var(--coral);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The phone column. Chalk extends full width behind it. */
+.app {
+  max-width: var(--col);
+  margin: 0 auto;
+  min-height: 100dvh;
+  position: relative;
+}
+
+.screen {
+  padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 24px);
+}
+
+.tone-ok {
+  color: var(--ok);
+}
+.tone-warn {
+  color: var(--warn);
+}
+.tone-bad {
+  color: var(--bad);
+}
+.band--panel .tone-ok {
+  color: var(--ok-on-dark);
+}
+.band--panel .tone-warn {
+  color: var(--warn-on-dark);
+}
+.band--panel .tone-bad {
+  color: var(--bad-on-dark);
+}
+.tone-coral {
+  color: var(--coral);
+}
+.tone-cobalt {
+  color: var(--cobalt);
+}
+
+/* Small coral text on light bands uses the darker step to keep 4.5:1. */
+.band--chalk .M.tone-coral,
+.band--chalk .tag--new,
+.band--chalk .cq__from {
+  color: var(--coral-ink);
+}
+/* Cobalt focus rings vanish on the dark panel; use white there. */
+.band--panel :focus-visible {
+  outline-color: #fff;
+}

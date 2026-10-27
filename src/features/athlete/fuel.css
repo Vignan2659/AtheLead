@@ -1,0 +1,105 @@
+.fu__text {
+  margin-top: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.fu__kcal {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 14px 0 12px;
+}
+.fu__kcalnum {
+  font-size: clamp(56px, 19vw, 76px);
+  letter-spacing: -3px;
+  line-height: 0.85;
+}
+.fu__of {
+  font-size: 15px;
+  font-weight: 550;
+  color: var(--panel-text-2);
+}
+.fu__bigbar {
+  height: 10px;
+}
+.fu__macros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 18px 0 0;
+  border-top: 1px solid var(--panel-rule);
+}
+.fu__macros > div {
+  padding: 12px 12px 0;
+  border-left: 1px solid var(--panel-rule);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.fu__macros > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.fu__macros dd {
+  margin: 0;
+}
+.fu__mnum {
+  font-size: 26px;
+  letter-spacing: -0.8px;
+}
+.fu__mnum small {
+  font-size: 13px;
+  color: var(--panel-text-2);
+  letter-spacing: 0;
+}
+.fu__water {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0 14px;
+}
+.fu__wnum {
+  font-size: 42px;
+  letter-spacing: -1.5px;
+}
+.fu__wbtns {
+  display: flex;
+  gap: 8px;
+}
+.fu__wbtns .pill {
+  height: 44px;
+  padding: 0 16px;
+  font-size: 13.5px;
+}
+.fu__meal {
+  align-items: start;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.fu__items {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+.fu__duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.fu__duo > div + div {
+  border-left: 1px solid var(--rule);
+  padding-left: 16px;
+}
+.fu__list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 550;
+}

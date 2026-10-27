@@ -1,0 +1,173 @@
+/* ---------- Teams ---------- */
+.bt__team,
+.be__event {
+  grid-template-rows: auto auto;
+  row-gap: 8px;
+  padding-bottom: 14px;
+}
+.bt__team.needs::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--coral);
+}
+.bt__bar {
+  grid-column: 2 / 4;
+}
+.bt__sports {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.bt__sports .bar {
+  margin-top: 4px;
+}
+.bt__sport {
+  font-weight: 650;
+  font-size: 14px;
+}
+
+/* ---------- Talent ---------- */
+.bt__funnel {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.bt__funnel li {
+  display: grid;
+  grid-template-columns: 74px 1fr 52px;
+  align-items: center;
+  gap: 10px;
+}
+.bt__funnel .bar {
+  height: 10px;
+}
+.bt__funnel .D {
+  font-size: 18px;
+  text-align: right;
+}
+.bt__zones li {
+  grid-template-columns: 84px 1fr 40px;
+  row-gap: 2px;
+}
+.bt__zonemeta {
+  grid-column: 2 / -1;
+  color: var(--ink-2);
+}
+.bt__zonenote {
+  margin-top: 14px;
+  color: var(--ink-2);
+}
+.bt__ret {
+  margin: 4px 0 12px;
+}
+.bt__retnote {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--panel-text-2);
+}
+.bt__empty {
+  padding: 0 var(--gutter) 6px;
+  color: var(--ink-2);
+}
+.bt__rural {
+  grid-template-rows: auto auto;
+  row-gap: 10px;
+  padding-bottom: 14px;
+}
+.bt__inv {
+  grid-column: 2 / 4;
+  justify-self: start;
+}
+
+/* ---------- Events ---------- */
+.be__controls {
+  display: grid;
+  gap: 10px;
+}
+.be__month {
+  padding: 14px var(--gutter) 6px;
+  border-top: 1px solid var(--ink);
+}
+.be__reason {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+.be__pri {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  align-self: start;
+}
+.be__pri .D {
+  font-size: 24px;
+}
+
+/* ---------- Board SLM ---------- */
+.bs__brief {
+  margin: 12px 0 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.bs__recs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.bs__rec {
+  padding: 16px var(--gutter);
+  border-top: 1px solid var(--rule);
+  transition: opacity var(--t-fade) var(--ease);
+}
+.bs__recs > li:last-child .bs__rec {
+  border-bottom: 1px solid var(--rule);
+}
+.bs__rec.is-decided .bs__title,
+.bs__rec.is-decided .bs__detail {
+  opacity: 0.6;
+}
+.bs__title {
+  font-size: 19px;
+  font-weight: 750;
+  line-height: 1.2;
+  margin: 8px 0 4px;
+}
+.bs__detail {
+  font-size: 14.5px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.bs__factors {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0 8px;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.bs__factors .bar {
+  margin-top: 4px;
+}
+.bs__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+.bs__approve {
+  background: var(--ink);
+  color: #fff;
+}
