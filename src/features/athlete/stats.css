@@ -1,0 +1,54 @@
+.st__metric {
+  transition: background-color var(--t-fade) var(--ease);
+}
+.st__metric.is-on {
+  background: var(--chalk-2);
+}
+.st__metric.is-on::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--cobalt);
+}
+.st__sw {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 12px;
+  border-top: 1px solid var(--rule);
+  padding-top: 12px;
+}
+.st__swtxt {
+  font-weight: 650;
+  font-size: 14px;
+  margin-top: 4px;
+}
+.st__strip {
+  margin: 4px 0 18px;
+}
+.st__strip:last-child {
+  margin-bottom: 0;
+}
+
+.st__pp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+}
+.st__pp > span:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.st__pp .M {
+  color: var(--cobalt-soft);
+}
+.st__pptitle {
+  font-size: 17px;
+  font-weight: 700;
+}

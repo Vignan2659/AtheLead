@@ -1,0 +1,286 @@
+.si {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--cobalt);
+  color: #fff;
+}
+/* Cobalt runs edge to edge on wide screens too */
+body:has(.si) {
+  background: var(--cobalt);
+}
+
+.si__top {
+  position: relative;
+  flex: 1 0 auto;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px var(--gutter) 22px;
+  overflow: hidden;
+}
+.si__labels {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+.si__labels .M {
+  color: var(--cobalt-soft);
+}
+
+.si__lanes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.si__lane {
+  fill: none;
+  stroke: var(--cobalt-2);
+  stroke-width: 30;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: si-draw 1100ms var(--ease) 150ms forwards;
+}
+.si__lane--b {
+  animation-delay: 300ms;
+}
+.si__laneline {
+  fill: none;
+  stroke: var(--cobalt-soft);
+  stroke-width: 1;
+  stroke-dasharray: 4 7;
+  opacity: 0;
+  animation: si-fade 600ms var(--ease) 900ms forwards;
+}
+@keyframes si-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes si-fade {
+  to {
+    opacity: 0.35;
+  }
+}
+.si__dot {
+  opacity: 0;
+  animation: si-dot 400ms var(--ease) 900ms forwards;
+}
+@keyframes si-dot {
+  to {
+    opacity: 1;
+  }
+}
+.si__dotc {
+  fill: var(--coral);
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+
+.si__mark {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(58px, 22vw, 86px);
+  line-height: 0.86;
+  letter-spacing: -3px;
+  color: #fff;
+}
+.si__mark2 {
+  color: var(--ink);
+}
+
+/* ---------- Sheet ---------- */
+.si__sheet {
+  background: var(--chalk);
+  color: var(--ink);
+  border-top: 1px solid var(--ink);
+  padding: 18px 0 calc(18px + env(safe-area-inset-bottom));
+  transform: translate3d(0, 100%, 0);
+  animation: si-sheet 800ms var(--ease) 250ms forwards;
+}
+@keyframes si-sheet {
+  to {
+    transform: none;
+  }
+}
+.si__sheet :focus-visible {
+  outline-color: var(--cobalt);
+}
+.si__pad {
+  padding: 0 var(--gutter);
+}
+.si__switch {
+  min-height: 44px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.si__roles {
+  margin-top: 4px;
+}
+.si__role {
+  min-height: 58px;
+  isolation: isolate;
+}
+.si__role::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 500ms var(--ease);
+  z-index: -1;
+}
+.si__role[aria-pressed='true']::before {
+  transform: scaleX(1);
+}
+.si__role .row__num,
+.si__role .row__name,
+.si__role .M {
+  transition: color 300ms var(--ease);
+}
+.si__role[aria-pressed='true'] .row__num,
+.si__role[aria-pressed='true'] .row__name,
+.si__role[aria-pressed='true'] .M {
+  color: #fff;
+}
+.si__role:active {
+  transform: scale(0.99);
+}
+.si__role {
+  transition: transform var(--t-press) var(--ease);
+}
+.si__role[aria-pressed='true']:focus-visible {
+  outline-color: var(--coral);
+  outline-offset: -3px;
+}
+.si__regrole {
+  margin: 8px 0 4px;
+}
+
+.si__fields {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+.si__field {
+  display: grid;
+  gap: 2px;
+}
+.si__field input {
+  width: 100%;
+  min-height: 44px;
+  border: 0;
+  border-bottom: 1.5px solid var(--ink);
+  background: transparent;
+  padding: 6px 0;
+  font-size: 17px;
+  font-weight: 550;
+  border-radius: 0;
+  transition: border-color var(--t-fade) var(--ease);
+}
+.si__field input:focus-visible {
+  outline: none;
+  border-bottom-color: var(--cobalt);
+  box-shadow: 0 1.5px 0 var(--cobalt);
+}
+.si__field input:disabled {
+  opacity: 0.45;
+}
+.si__field.is-invalid input {
+  border-bottom-color: var(--bad);
+}
+
+.si__opts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.si__check {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 550;
+  cursor: pointer;
+  position: relative;
+}
+.si__check input {
+  position: absolute;
+  opacity: 0;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+.si__box {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--ink);
+  display: grid;
+  place-items: center;
+}
+.si__box::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--ink);
+  transform: scale(0);
+  transition: transform 300ms var(--ease);
+}
+.si__check input:checked + .si__box::after {
+  transform: scale(1);
+}
+.si__check input:focus-visible + .si__box {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 2px;
+}
+.si__forgot {
+  min-height: 44px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.si__msg {
+  min-height: 22px;
+  margin: 6px 0 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.si__msg.is-err {
+  color: var(--bad);
+}
+.si__demo {
+  text-align: center;
+  margin-top: 12px;
+}
+.si__mission {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.si__demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.si__labels {
+  align-items: center;
+}
+.si__lang {
+  color: #fff;
+}
+

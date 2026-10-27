@@ -1,0 +1,374 @@
+/* ---------- Lane bar ---------- */
+.lane {
+  position: relative;
+  height: 4px;
+  background: var(--rule-soft);
+  margin-top: 10px;
+}
+.lane__safe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--safe-zone);
+}
+.lane__mk {
+  position: absolute;
+  inset: 0;
+  transition: transform 800ms var(--ease);
+  will-change: transform;
+}
+.lane__dot {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  margin: -5.5px 0 0 -5.5px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 2px var(--chalk);
+}
+
+/* ---------- Bottom nav ---------- */
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: var(--col);
+  height: calc(var(--nav-h) + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--chalk);
+  border-top: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: repeat(var(--tabs, 5), 1fr);
+  z-index: 50;
+}
+.nav__marker {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: calc(100% / var(--tabs, 5));
+  height: 3px;
+  background: var(--coral);
+  transition: transform 600ms var(--ease);
+  will-change: transform;
+}
+.nav__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  color: var(--ink-3);
+  transition: color var(--t-fade) var(--ease);
+}
+.nav__tab[aria-current='page'] {
+  color: var(--ink);
+}
+.nav__tab .M {
+  color: inherit;
+  font-size: 10.5px;
+}
+
+/* ---------- Sheet ---------- */
+.sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s linear 500ms;
+}
+.sheet.is-open {
+  pointer-events: auto;
+  visibility: visible;
+  transition: none;
+}
+.sheet__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 20, 15, 0.45);
+  opacity: 0;
+  transition: opacity var(--t-fade) var(--ease);
+}
+.sheet.is-open .sheet__scrim {
+  opacity: 1;
+}
+.sheet__panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  max-width: var(--col);
+  max-height: 88dvh;
+  overflow: auto;
+  background: var(--chalk);
+  border-top: 1px solid var(--ink);
+  padding: 20px 0 calc(24px + env(safe-area-inset-bottom));
+  transform: translate3d(0, 100%, 0);
+  transition: transform 500ms var(--ease);
+}
+.sheet.is-open .sheet__panel {
+  transform: none;
+}
+.sheet__pad {
+  padding: 0 var(--gutter);
+}
+
+/* ---------- Account sheet ---------- */
+.acct__name {
+  font-size: 28px;
+  letter-spacing: -1px;
+  margin: 10px 0 4px;
+}
+.acct__actions {
+  padding: 18px var(--gutter) 0;
+}
+
+/* ---------- Placeholder / 403 ---------- */
+.kv {
+  margin: 0;
+}
+.kv > div {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 var(--gutter);
+  border-top: 1px solid var(--rule);
+}
+.kv > div:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.kv dd {
+  margin: 0;
+  font-weight: 650;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 14px;
+}
+
+/* Tone classes on labels beat the band's default label colour */
+.M.tone-coral {
+  color: var(--coral);
+}
+.M.tone-ok {
+  color: var(--ok);
+}
+.M.tone-warn {
+  color: var(--warn);
+}
+.M.tone-bad {
+  color: var(--bad);
+}
+.band--panel .M.tone-ok {
+  color: var(--ok-on-dark);
+}
+.band--panel .M.tone-warn {
+  color: var(--warn-on-dark);
+}
+.band--panel .M.tone-bad {
+  color: var(--bad-on-dark);
+}
+
+/* ---------- Pathway ladder ---------- */
+.ladder {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--tabs, 5), 1fr);
+  gap: 4px;
+}
+.ladder__step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.ladder__seg {
+  display: block;
+  height: 10px;
+  background: var(--rule-soft);
+}
+.ladder__step.is-past .ladder__seg {
+  background: var(--cobalt);
+}
+.ladder__step.is-now .ladder__seg {
+  background: var(--coral);
+}
+.ladder__name {
+  font-size: 8.5px;
+  letter-spacing: 0.03em;
+  overflow-wrap: anywhere;
+}
+.ladder__step.is-now .ladder__name {
+  color: var(--ink);
+}
+
+/* ---------- Header actions + bell ---------- */
+.hdr__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.bell {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  transition: transform var(--t-press) var(--ease);
+}
+.bell:active {
+  transform: scale(0.95);
+}
+.bell__count {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--coral);
+  color: var(--ink);
+  font-size: 10.5px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+  animation: bell-pop 450ms var(--ease) both;
+}
+@keyframes bell-pop {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+}
+
+/* ---------- Inbox ---------- */
+.inbox__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.inbox__head .textbtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.inbox__row {
+  align-items: start;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  isolation: isolate;
+}
+.inbox__row .row__main {
+  gap: 4px;
+}
+.inbox__row .row__name {
+  font-size: 15px;
+}
+.inbox__row.is-unread::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--chalk-3);
+  z-index: -1;
+}
+.inbox__mark {
+  padding-top: 2px;
+}
+.inbox__dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 3px 0 0 3px;
+  border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 0 0 0 2px var(--ink);
+}
+.inbox__body {
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+.inbox__go {
+  padding-top: 2px;
+  color: var(--ink);
+}
+.acct__reset {
+  margin-left: 18px;
+  color: var(--ink-2);
+}
+
+/* ---------- Language switch ---------- */
+.lang {
+  display: inline-flex;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  padding: 2px;
+  gap: 2px;
+}
+.lang__opt {
+  min-height: 40px;
+  min-width: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 650;
+  color: inherit;
+  transition:
+    background-color var(--t-fade) var(--ease),
+    color var(--t-fade) var(--ease);
+}
+.lang__opt[aria-pressed='true'] {
+  background: var(--ink);
+  color: #fff;
+}
+.on-cobalt .lang__opt[aria-pressed='true'] {
+  background: #fff;
+  color: var(--cobalt);
+}
+.acct__lang {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* ---------- Offline bar ---------- */
+.offbar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 8px);
+  width: calc(min(100%, var(--col)) - 2 * var(--gutter));
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #fff;
+  z-index: 60;
+  text-align: center;
+  line-height: 1.35;
+}
+.offbar.is-sync {
+  background: var(--cobalt);
+}
+
+.acct__links {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 18px;
+}
+.acct__links .acct__reset {
+  margin-left: 0;
+}

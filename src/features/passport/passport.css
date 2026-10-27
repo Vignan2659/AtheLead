@@ -1,0 +1,119 @@
+.pp {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 32px);
+}
+.pp--missing {
+  padding: 24px var(--gutter);
+}
+.pp__bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px var(--gutter);
+}
+.pp__num {
+  color: var(--cobalt-soft);
+}
+.pp__name {
+  margin-top: 18px;
+  font-size: clamp(34px, 11vw, 52px);
+  line-height: 0.92;
+  letter-spacing: -1.5px;
+  overflow-wrap: anywhere;
+}
+.pp__event {
+  margin: 12px 0 0;
+  font-size: 17px;
+  font-weight: 650;
+}
+.pp__home {
+  margin: 8px 0 0;
+  color: var(--cobalt-soft);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.pp__tag {
+  background: #fff;
+  color: var(--ink);
+}
+.pp__ladder {
+  margin-top: 20px;
+}
+.pp__ladder .ladder {
+  margin-top: 10px;
+}
+.pp__row {
+  align-items: start;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.pp__row .row__num,
+.pp__row .row__val {
+  padding-top: 2px;
+}
+.pp__by {
+  color: var(--ok);
+}
+.pp__by--video {
+  color: var(--cobalt);
+}
+.pp__by--coach {
+  color: var(--ink-2);
+}
+.pp__sign {
+  margin: 8px 0 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+.pp__fine {
+  margin: 6px 0 0;
+  color: var(--panel-text-2);
+}
+.pp__privacy {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--panel-rule);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--panel-text-2);
+}
+.pp__share {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: 16px;
+  align-items: center;
+}
+.pp__qr {
+  width: 132px;
+  height: 132px;
+  border: 1px solid var(--rule);
+}
+.pp__sharetext {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.pp__sharelede {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.pp__invite {
+  margin-top: 18px;
+}
+
+@media print {
+  .pp__bar,
+  .tb,
+  .pp__invite {
+    display: none;
+  }
+}
+
+.pp .stats__val {
+  font-size: clamp(22px, 7.4vw, 30px);
+  letter-spacing: -0.8px;
+}

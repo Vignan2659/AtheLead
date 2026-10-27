@@ -1,0 +1,93 @@
+/* Staggered entrance: set --i on each section */
+.rise {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  animation: rise 700ms var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Heading lines slide up out of a mask */
+.mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+}
+.mask > span {
+  display: block;
+  transform: translate3d(0, 105%, 0);
+  animation: mask-up 800ms var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 80ms + 60ms);
+}
+@keyframes mask-up {
+  to {
+    transform: none;
+  }
+}
+
+/* Bars grow from the left; later value changes transition */
+.grow {
+  transform-origin: left center;
+  animation: grow var(--t-draw) var(--ease) backwards;
+  animation-delay: calc(var(--i, 0) * 80ms + 200ms);
+  transition: transform 700ms var(--ease);
+}
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.fade-in {
+  animation: fade-in var(--t-fade) var(--ease) both;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  80%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.press {
+  transition: transform var(--t-press) var(--ease);
+}
+.press:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Row lists that re-key on a filter change cascade in. */
+.cascade {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  animation: rise 550ms var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 55ms);
+}

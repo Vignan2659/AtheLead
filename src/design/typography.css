@@ -1,0 +1,133 @@
+/* Display — wide, heavy, uppercase */
+.D {
+  font-family: var(--font);
+  font-stretch: 125%;
+  font-weight: 880;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+
+/* Label — small caps-style metadata */
+.M {
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  line-height: 1.35;
+  color: var(--ink-2);
+}
+
+.title {
+  font-size: clamp(50px, 18.5vw, 72px);
+  line-height: 0.86;
+  letter-spacing: -2.5px;
+  margin-top: 18px;
+}
+.title .l2 {
+  color: var(--cobalt);
+}
+
+.sectitle {
+  font-size: 28px;
+  letter-spacing: -1px;
+}
+
+.body {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tamil: no capitals to lean on, taller glyphs and longer words, so the
+   display type steps down, opens its leading and may wrap. Draft until the
+   native-speaker review in Phase 1. */
+:lang(ta) .D {
+  letter-spacing: 0;
+  line-height: 1.12;
+}
+:lang(ta) .M {
+  letter-spacing: 0.01em;
+  font-size: 11px;
+}
+:lang(ta) .title {
+  font-size: clamp(30px, 9.6vw, 44px);
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+:lang(ta) .title .mask > span {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+:lang(ta) .sectitle {
+  font-size: 21px;
+  letter-spacing: 0;
+}
+:lang(ta) .pill {
+  font-size: 13px;
+  padding-left: 14px;
+  padding-right: 14px;
+  min-width: 0;
+  text-align: center;
+  line-height: 1.25;
+}
+:lang(ta) .pill--sm {
+  height: auto;
+  min-height: 44px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+:lang(ta) .nav__tab {
+  min-width: 0;
+  padding: 0 1px;
+}
+:lang(ta) .nav__tab .M {
+  font-size: 9.5px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+:lang(ta) .chart__svg--radar .chart__axis {
+  font-size: 10px;
+}
+:lang(ta) .stats__cell {
+  min-width: 0;
+}
+:lang(ta) .stats__cell .M {
+  overflow-wrap: anywhere;
+}
+
+/* Tamil words run long: let tight cells wrap instead of overflowing. */
+:lang(ta) .td__next,
+:lang(ta) .bd__fcol,
+:lang(ta) .bt__funnel .M {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+:lang(ta) .bt__funnel li {
+  grid-template-columns: 96px 1fr 48px;
+}
+:lang(ta) .bt__funnel .D {
+  font-size: 16px;
+}
+:lang(ta) .mi__big {
+  font-size: clamp(22px, 6.6vw, 28px);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+:lang(ta) .bd__ctitle {
+  font-size: clamp(19px, 5.6vw, 24px);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+:lang(ta) .bd__actions .pill {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}

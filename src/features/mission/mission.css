@@ -1,0 +1,122 @@
+.mi {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 32px);
+}
+.mi__lede {
+  margin-top: 18px;
+  font-size: 17px;
+  font-weight: 550;
+  line-height: 1.4;
+  max-width: 36ch;
+}
+.mi__big {
+  font-size: clamp(30px, 9.5vw, 40px);
+  line-height: 0.95;
+  letter-spacing: -1.2px;
+  margin: 12px 0 14px;
+}
+.mi__text {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--panel-text-2);
+  margin-bottom: 8px;
+}
+.mi__text--ink {
+  color: var(--ink-2);
+}
+.mi__src {
+  margin-top: 12px;
+}
+.mi__row {
+  align-items: start;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  grid-template-columns: 38px 1fr;
+}
+.mi__row .row__num {
+  padding-top: 2px;
+}
+.mi__rowtext {
+  display: block;
+  margin-top: 4px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+.mi__roles {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+.mi__roles li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 0;
+  border-top: 1px solid var(--cobalt-2);
+}
+.mi__role {
+  font-size: 24px;
+  letter-spacing: -0.8px;
+}
+.mi__roletext {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.mi__scope {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+.mi__list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+.mi__list li {
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+  font-size: 14.5px;
+  font-weight: 550;
+}
+.mi__cta {
+  padding: 8px var(--gutter) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.mi__title {
+  font-size: clamp(44px, 16vw, 68px);
+}
+.mi .stats__val {
+  font-size: clamp(20px, 6.6vw, 28px);
+  letter-spacing: -1px;
+}
+
+.mi__list--dark li {
+  border-top-color: var(--panel-rule);
+  color: #fff;
+}
+.mi__when {
+  margin-left: 6px;
+  vertical-align: 1px;
+}
+.mi__chips {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.mi__chips li {
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: var(--ink);
+}

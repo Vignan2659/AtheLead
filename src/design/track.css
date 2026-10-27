@@ -1,0 +1,67 @@
+.track {
+  position: relative;
+  margin: 18px 0 20px;
+}
+.track__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.track__rule {
+  fill: none;
+  stroke: var(--panel-rule);
+  stroke-width: 1;
+}
+.track__lane {
+  fill: none;
+  stroke: var(--panel-2);
+  stroke-width: 24;
+}
+.track__laneline {
+  fill: none;
+  stroke: #4a5246;
+  stroke-width: 1.25;
+  stroke-dasharray: 5 7;
+}
+.track__start {
+  stroke: #fff;
+  stroke-width: 2;
+  opacity: 0.85;
+}
+.track__prog {
+  fill: none;
+  stroke: var(--cobalt);
+  stroke-width: 16;
+  stroke-linecap: round;
+  opacity: 0;
+}
+.track__runner {
+  fill: var(--coral);
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+.track__ping {
+  fill: var(--coral);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ping 1.9s var(--ease) infinite;
+}
+.track [transform] {
+  will-change: transform;
+}
+.track__centre {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  pointer-events: none;
+}
+.track__count {
+  font-size: clamp(44px, 15vw, 58px);
+  letter-spacing: -2px;
+  color: #fff;
+}

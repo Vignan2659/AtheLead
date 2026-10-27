@@ -1,0 +1,336 @@
+/* ---------- Pilot: verification, flags, age stages ---------- */
+.pb__badge,
+.pb__flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 7px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 9.5px;
+  white-space: nowrap;
+}
+.pb__badge--self {
+  color: var(--warn);
+}
+.pb__badge--coach {
+  color: var(--ok);
+}
+.pb__badge--video {
+  color: var(--cobalt);
+}
+.pb__flag {
+  color: var(--coral-ink, var(--coral));
+}
+.band--panel .pb__badge--self {
+  color: var(--warn-on-dark);
+}
+.band--panel .pb__badge--coach {
+  color: var(--ok-on-dark);
+}
+.pb__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  margin-top: 4px;
+  color: var(--ink-2);
+}
+
+.pb__stage {
+  display: grid;
+  gap: 6px;
+}
+.pb__stagename {
+  font-size: 30px;
+  line-height: 1;
+  margin: 2px 0 4px;
+}
+.pb__stagetxt {
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+.pb__stagetxt .M {
+  display: block;
+  color: var(--ink-2);
+}
+.band--panel .pb__stagetxt .M,
+.band--cobalt .pb__stagetxt .M {
+  color: inherit;
+  opacity: 0.75;
+}
+
+.pb__note {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  margin: 10px 0 0;
+}
+.pb__rowcol {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.pb__card {
+  display: grid;
+  gap: 6px;
+  padding: 16px var(--gutter);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.pb__card:last-child {
+  border-bottom: 0;
+}
+.pb__cardhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+.pb__reason {
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+.pb__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+.pb__actions .pill {
+  min-width: 0;
+}
+.pb__state {
+  font-weight: 650;
+}
+.tone-ink {
+  color: var(--ink-2);
+}
+
+.pb__toggle {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  align-items: center;
+  padding: 14px var(--gutter);
+  border-bottom: 1px solid var(--rule);
+}
+.pb__toggle:last-child {
+  border-bottom: 0;
+}
+.pb__toggle p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--ink-2);
+  grid-column: 1;
+}
+
+.pb__bars {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.pb__bars li {
+  display: grid;
+  grid-template-columns: 112px 1fr 44px;
+  align-items: center;
+  gap: 10px;
+}
+.pb__bars .bar {
+  height: 10px;
+}
+.pb__bars .D {
+  font-size: 18px;
+  text-align: right;
+}
+
+:lang(ta) .pb__bars li {
+  grid-template-columns: 120px 1fr 44px;
+}
+:lang(ta) .pb__bars .M,
+:lang(ta) .pb__badge,
+:lang(ta) .pb__flag {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+:lang(ta) .pb__stagename {
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.pb__result {
+  padding-top: 8px;
+  margin-top: 4px;
+  border-top: 1px dashed var(--rule);
+}
+.pb__list {
+  list-style: none;
+  margin: 8px 0 14px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.pb__list li {
+  display: grid;
+  gap: 2px;
+}
+.pb__empty {
+  padding: 0 var(--gutter);
+  color: var(--ink-2);
+}
+.pb__empty:first-child,
+.sechead + .pb__empty {
+  margin: 0 0 14px;
+}
+.pb__told {
+  max-width: 92px;
+  text-align: right;
+  white-space: normal;
+}
+
+/* ---------- Wellbeing ---------- */
+.wb__q {
+  margin-top: 16px;
+}
+.wb__q .pb__reason {
+  margin-bottom: 8px;
+}
+.wb__ends {
+  margin-top: 6px;
+  color: var(--ink-2);
+}
+.wb__steps {
+  margin: 0;
+  padding: 0 var(--gutter) 16px calc(var(--gutter) + 50px);
+  display: grid;
+  gap: 6px;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.wb__num {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* ---------- Food ---------- */
+.fm__filters {
+  display: grid;
+  gap: 10px;
+  margin: 4px 0 16px;
+}
+.fm__chips {
+  margin: 8px 0 4px;
+}
+.fm__mess.is-today::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--coral);
+}
+.fm__meals {
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.fm__range {
+  font-size: 30px;
+  line-height: 1.1;
+  margin: 6px 0 0;
+}
+.fm__range small {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+:lang(ta) .fm__range {
+  font-size: 26px;
+}
+
+/* ---------- Bulk entry ---------- */
+.be__field {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+.be__select,
+.be__input input {
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  background: var(--chalk);
+  color: var(--ink);
+}
+.be__rows {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.be__rows li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+/* Name over its sport tag, so a long Tamil event name wraps instead of pushing the input off-screen. */
+.be__rows .row__name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.be__rows .sporttag {
+  margin-left: 0;
+  max-width: 100%;
+  white-space: normal;
+}
+.be__input {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.be__input input {
+  width: 92px;
+  text-align: right;
+}
+.be__input .M {
+  min-width: 32px;
+}
+.be__conflict {
+  margin-top: 12px;
+}
+
+/* ---------- Admin ---------- */
+.ad__rule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 4px 0;
+}
+.ad__val {
+  font-size: 30px;
+  min-width: 90px;
+  text-align: center;
+}
+.ad__val small {
+  font-size: 13px;
+}
+.band--panel .stats + .stats {
+  margin-top: 14px;
+}
