@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { SportTag } from '../../design/SportTag';
+import { BodyLine } from '../../design/BodyLine';
 import { Band, Bar, Label, PillButton, RowNum, ScreenHeader, SectionHead, Segmented, StatStrip, Title, cx } from '../../design/primitives';
 import { GenderSwitch } from '../../design/GenderSwitch';
 import {
@@ -109,6 +110,7 @@ function FlagCard({ f, state }: { f: TalentFlag; state: FlagState }) {
       <span className="M">
         {t(a.sport)} · {t(a.event)} · {a.home}
       </span>
+      <BodyLine of={a.id} noAge />
       <p className="pb__reason">{t(f.reason)}</p>
       <span className="M pb__meta">
         {t(r.test)} {r.value} · <VerifyBadge v={verificationOf(r, verified)} /> {t(r.method)}
@@ -281,6 +283,7 @@ export function DistrictTrials() {
               <span className="M">
                 {t(FLAG_META[f.type].label)} · {a.home}
               </span>
+              <BodyLine of={a.id} noAge />
               <Segmented label="Trial outcome" options={TRIAL_OUTCOMES} value={outcomes[f.id] ?? null} onChange={(o) => setOutcome(f.id, o)} />
             </div>
           );

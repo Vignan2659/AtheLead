@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { SportTag } from '../../design/SportTag';
+import { BodyLine } from '../../design/BodyLine';
 import { useNavigate } from 'react-router-dom';
 import { Band, Bar, Expander, Label, PillButton, RowNum, ScreenHeader, SectionHead, Segmented, Title, cx } from '../../design/primitives';
 import { GenderSwitch } from '../../design/GenderSwitch';
@@ -7,6 +8,7 @@ import { PIPELINE_STAGES, PROSPECTS, TEAM_GAPS, type Prospect } from '../../data
 import type { SwipeDir } from '../../lib/swipe';
 import { prospectCardId, useCurrentUser, useStore, verificationOf } from '../../state/store';
 import { PILOT_ATHLETES, PILOT_DISTRICT, TEST_RESULTS } from '../../data/pilot';
+import { bodyOf } from '../../data/body';
 import '../pilot/pilot.css';
 import { useT } from '../../i18n';
 import './coachtabs.css';
@@ -17,6 +19,20 @@ const FILTERS = [
   { value: 'rural', label: 'Rural' },
   { value: 'shortlist', label: 'Shortlist' },
 ] as const;
+
+type Sort = 'fit' | 'height' | 'weight' | 'age';
+const SORTS = [
+  { value: 'fit', label: 'Team fit' },
+  { value: 'height', label: 'Tallest' },
+  { value: 'weight', label: 'Heaviest' },
+  { value: 'age', label: 'Youngest' },
+] as const;
+const SORT_KEY: Record<Sort, (p: Prospect) => number> = {
+  fit: (p) => -p.teamFit,
+  height: (p) => -(bodyOf(p.id)?.heightCm ?? 0),
+  weight: (p) => -(bodyOf(p.id)?.weightKg ?? 0),
+  age: (p) => p.age,
+};
 
 const VERDICT: Record<SwipeDir, { text: string; tone: string }> = {
   right: { text: 'Board approved · offer goes out', tone: 'tone-ok' },
@@ -31,14 +47,15 @@ export function CoachScout() {
   const gender = useStore((s) => s.genderView);
   const stages = useStore((s) => s.prospectStage);
   const [filter, setFilter] = useState<Filter>('all');
+  const [sort, setSort] = useState<Sort>('fit');
   const [open, setOpen] = useState<string | null>(null);
   const [compare, setCompare] = useState<string[]>([]);
   const t = useT();
 
   const pool = PROSPECTS.filter((p) => p.gender === gender).sort((a, b) => b.teamFit - a.teamFit);
-  const shown = pool.filter((p) =>
-    filter === 'rural' ? p.origin === 'rural' : filter === 'shortlist' ? (stages[p.id] ?? 0) >= 1 : true,
-  );
+  const shown = pool
+    .filter((p) => (filter === 'rural' ? p.origin === 'rural' : filter === 'shortlist' ? (stages[p.id] ?? 0) >= 1 : true))
+    .sort((a, b) => SORT_KEY[sort](a) - SORT_KEY[sort](b));
   const counts = PIPELINE_STAGES.map((_, i) => pool.filter((p) => (stages[p.id] ?? 0) === i).length);
   const pair = compare.map((id) => PROSPECTS.find((p) => p.id === id)!).filter((p) => p.gender === gender);
 
@@ -67,14 +84,17 @@ export function CoachScout() {
       </Band>
 
       <Band i={4} flush aria-label="Ranked prospects">
-        <SectionHead title="Ranked" aside="By team fit" />
+        <SectionHead title="Ranked" aside={t(sort === 'fit' ? 'By team fit' : 'By body profile')} />
         <div className="sc__filter">
           <Segmented label="Filter prospects" options={FILTERS} value={filter} onChange={setFilter} />
+        </div>
+        <div className="sc__filter">
+          <Segmented label="Sort prospects" options={SORTS} value={sort} onChange={setSort} />
         </div>
         {shown.length === 0 ? (
           <p className="body ct__empty">{t('No one shortlisted yet. Open a prospect and tap Shortlist.')}</p>
         ) : (
-          <ul className="rows" key={`${gender}-${filter}`}>
+          <ul className="rows" key={`${gender}-${filter}-${sort}`}>
             {shown.map((p, i) => (
               <li key={p.id} className="cascade" style={{ ['--i' as string]: i }}>
                 <ProspectRow
@@ -164,8 +184,9 @@ function ProspectRow({
             {p.origin === 'rural' && <span className="M tag tag--rural">{t('Rural')}</span>}
           </span>
           <span className="M">
-            {t(p.role)} · {p.age} · {p.home}
+            {t(p.role)} · {p.home}
           </span>
+          <BodyLine of={p.id} />
           <span className={cx('M', v ? v.tone : 'tone-cobalt')}>{t(v ? v.text : stage === BOARD ? 'With the board' : PIPELINE_STAGES[stage])}</span>
         </span>
         <span className="sc__fit">
@@ -240,7 +261,10 @@ function ProspectRow({
 }
 
 function Compare({ a, b }: { a: Prospect; b: Prospect }) {
-  const rows: { label: string; va: number; vb: number; higher: boolean; unit?: string }[] = [
+  const ba = bodyOf(a.id)!;
+  const bb = bodyOf(b.id)!;
+  // Body rows have no better side: what suits depends on the event, so they are never marked green.
+  const rows: { label: string; va: number; vb: number; higher: boolean | null; unit?: string }[] = [
     { label: 'Team fit', va: a.teamFit, vb: b.teamFit, higher: true },
     { label: 'Potential', va: a.potential, vb: b.potential, higher: true },
     { label: 'Fitness', va: a.fitness, vb: b.fitness, higher: true },
@@ -248,10 +272,13 @@ function Compare({ a, b }: { a: Prospect; b: Prospect }) {
       .map((m, i) => ({ label: m.label, va: m.value, vb: b.metrics[i].value, higher: m.higherIsBetter, unit: m.unit }))
       .filter((r) => r.va > 0 && r.vb > 0),
     { label: 'Age', va: a.age, vb: b.age, higher: false },
+    { label: 'Height', va: ba.heightCm, vb: bb.heightCm, higher: null, unit: 'cm' },
+    { label: 'Weight', va: ba.weightKg, vb: bb.weightKg, higher: null, unit: 'kg' },
+    { label: 'Arm span', va: ba.armSpanCm, vb: bb.armSpanCm, higher: null, unit: 'cm' },
   ];
   const t = useT();
   const best = (r: (typeof rows)[number], side: 'a' | 'b') => {
-    if (r.va === r.vb) return false;
+    if (r.va === r.vb || r.higher === null) return false;
     const aWins = r.higher ? r.va > r.vb : r.va < r.vb;
     return side === 'a' ? aWins : !aWins;
   };

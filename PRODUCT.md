@@ -119,6 +119,13 @@ gap between villages and selectors becomes something they can measure and close.
     small tag beside the name shows their sport and event, e.g. "Athletics · 400 m" or
     "Weightlifting · 55 kg youth". Where the next line already gives the event, the tag shows the sport
     only. The lookup is `src/data/roster.ts` (by id or name); the tag is `src/design/SportTag.tsx`.
+  - *Body profile:* every athlete has age, height, weight, arm span, reach vs height and strong side,
+    from the test battery's "Height, weight, arm span" station. A short line under each name
+    ("19 y · 181 cm · 70 kg") shows on squad, scouting, talent, tests and district screens; the passport
+    has a full Body profile card with where and when it was measured. Scouting can sort by team fit,
+    tallest, heaviest or youngest, and the compare table adds height, weight and arm span (never marked
+    better, since what suits depends on the event). Values are fictional, set within typical ranges per
+    event group, gender and age (`src/data/body.ts`); lifters sit just under their weight class.
   - *Bands:* permission per data type, with "disconnect all" and manual entry. Band data never
     counts toward flags.
   - *Trial outcomes:* the district officer records selected, trial again or did not come, which
