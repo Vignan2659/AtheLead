@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { SportTag } from '../../design/SportTag';
+import { BodyLine } from '../../design/BodyLine';
 import { Band, Label, PillButton, ScreenHeader, SectionHead, Segmented, StatStrip, Title, cx } from '../../design/primitives';
 import {
   FLAG_META, FLAG_TYPES, PILOT_ATHLETES, PILOT_DISTRICT, PILOT_SPORTS, TEST_BATTERY, stageOf, yearsOf,
@@ -111,6 +112,7 @@ export function CoachTests() {
               <span className="M">
                 <AgeLine months={a.ageMonths} /> · {t(a.event)}
               </span>
+              <BodyLine of={a.id} noAge />
               {mine.map((r) => {
                 const v = verificationOf(r, verified);
                 return (

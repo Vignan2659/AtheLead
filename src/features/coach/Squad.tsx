@@ -1,5 +1,6 @@
 import { memo, useMemo, useState } from 'react';
 import { SportTag } from '../../design/SportTag';
+import { BodyLine } from '../../design/BodyLine';
 import { Band, Bar, CountUp, Label, PillButton, RowNum, ScreenHeader, SectionHead, Segmented, StatStrip, Title, cx } from '../../design/primitives';
 import { LaneBar } from '../../design/LaneBar';
 import { GenderSwitch } from '../../design/GenderSwitch';
@@ -160,6 +161,7 @@ const PlayerRow = memo(function PlayerRow({ p, n }: { p: SquadPlayer; n: number 
           {t(p.position)} · {p.home}
           {p.note && ` · ${t(p.note)}`}
         </span>
+        <BodyLine of={p.id} />
       </span>
       <span className={cx('D row__val', `tone-${tone}`)}>
         <span className="sr-only">ACWR </span>

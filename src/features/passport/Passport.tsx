@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { SportTag } from '../../design/SportTag';
+import { BodyCard } from '../../design/BodyLine';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import qrcode from 'qrcode-generator';
 import { Band, Label, PillButton, RowNum, SectionHead, StatStrip } from '../../design/primitives';
@@ -106,6 +107,11 @@ export function PassportPage() {
           <Label>{t('Pathway · {s}', { s: t(PATHWAY_STAGES[p.stage]) })}</Label>
           <Ladder stages={PATHWAY_STAGES} current={p.stage} />
         </div>
+      </Band>
+
+      <Band i={2} aria-label="Body profile">
+        <SectionHead title="Body profile" aside={t('For event fit')} />
+        <BodyCard of={p.id} />
       </Band>
 
       <Band i={2} flush aria-label="Verified results">

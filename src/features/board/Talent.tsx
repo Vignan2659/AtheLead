@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SportTag } from '../../design/SportTag';
+import { BodyLine } from '../../design/BodyLine';
 import { Band, Bar, Label, RowNum, ScreenHeader, SectionHead, StatStrip, Title, cx } from '../../design/primitives';
 import { GenderSwitch } from '../../design/GenderSwitch';
 import { LineChart } from '../../design/Charts';
@@ -141,6 +142,7 @@ export function BoardTalent() {
                     <span className="M">
                       {t(r.event)} · {r.village}, {r.state}
                     </span>
+                    <BodyLine of={r.id} />
                     <span className="M tone-ok">{t('+{n} this quarter', { n: r.trend })}</span>
                   </span>
                   <span className="D row__val">{r.devIndex}</span>
@@ -168,8 +170,9 @@ export function BoardTalent() {
                     {p.origin === 'rural' && <span className="M tag tag--rural">{t('Rural')}</span>}
                   </span>
                   <span className="M">
-                    {t(p.role)} · {p.age} · {p.home}
+                    {t(p.role)} · {p.home}
                   </span>
+                  <BodyLine of={p.id} />
                 </span>
                 <span className="D row__val">{p.potential}</span>
               </div>
