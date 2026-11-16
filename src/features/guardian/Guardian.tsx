@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { RoleGuide } from '../../app/Guide';
 import { Band, Label, PillButton, RowNum, ScreenHeader, SectionHead, Segmented, StatStrip, Title, cx } from '../../design/primitives';
 import {
   CHILD_FOOD, CONSENT_PURPOSES, PILOT_DISTRICT, PLAN_TEMPLATES, isMinor, pilotAthlete, stageOf, yearsOf, type PilotAthlete,
@@ -62,6 +63,7 @@ export function GuardianChild() {
     return (
       <>
         <Header lines={['Your', 'Child.']} />
+        <RoleGuide role="guardian" />
         <NoChild />
       </>
     );
@@ -73,6 +75,7 @@ export function GuardianChild() {
   return (
     <>
       <Header lines={['Your', 'Child.']} />
+        <RoleGuide role="guardian" />
       <ChildPicker {...ch} />
 
       <Band i={3} aria-label="Summary">

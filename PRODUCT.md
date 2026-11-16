@@ -47,6 +47,18 @@ HR, sleep, recovery/strain, steps and GPS speed into AtheLead, giving more preci
 - Board: verified, device-backed numbers behind selections.
 The MVP shows them as "Preview" data. See `docs/WEARABLES.md` and `src/wearables/`.
 
+## Finding your way (step guide)
+Built so someone who reads little can still use the app:
+- **The cause, in one sentence,** on sign-in and at the top of every role's home.
+- **Your steps:** each role's screens as numbered picture tiles in the order they are used
+  (athlete 6, coach 6, guardian 3, district officer 3, board 6), each with an icon and one plain
+  sentence. A **Listen** button reads the cause and the steps aloud in English or Tamil.
+- **Step strip** above every screen ("Step 2 of 6 · Train") with a link back to all steps, and a
+  **Next step** button at the foot of every screen, so the app reads start to finish.
+- **Icons on the bottom tabs** and on the sign-in roles.
+Steps live in `src/app/steps.ts`; the components are in `src/app/Guide.tsx`; icons in
+`src/design/Icon.tsx`.
+
 ## Athlete passport and talent map
 - **Athlete passport (`/passport/:id`):** a one-page, shareable record of verified performance:
   PB, development index, pathway stage, results marked meet-timed, video- or coach-verified,

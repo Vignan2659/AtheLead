@@ -1,4 +1,5 @@
 import { memo, useMemo, useState } from 'react';
+import { RoleGuide } from '../../app/Guide';
 import { SportTag } from '../../design/SportTag';
 import { BodyLine } from '../../design/BodyLine';
 import { Band, Bar, CountUp, Label, PillButton, RowNum, ScreenHeader, SectionHead, Segmented, StatStrip, Title, cx } from '../../design/primitives';
@@ -56,6 +57,8 @@ export function CoachSquad() {
       <ScreenHeader label="Athletics — Head coach · sprints" initials={user?.initials ?? 'RM'}>
         <Title lines={['Track', 'U-20.']} />
       </ScreenHeader>
+
+      <RoleGuide role="coach" />
 
       <Band rule="ink" i={2}>
         <GenderSwitch note={squad.name} />

@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import type { Role } from '../data/users';
 import { PARENT_TAB, TABS } from './nav';
 import { useT } from '../i18n';
+import { Icon } from '../design/Icon';
 
 export function BottomNav({ role }: { role: Role }) {
   const { pathname } = useLocation();
@@ -17,6 +18,7 @@ export function BottomNav({ role }: { role: Role }) {
       <span className="nav__marker" style={{ transform: `translate3d(${active * 100}%,0,0)` }} aria-hidden="true" />
       {tabs.map((t) => (
         <NavLink key={t.path} to={`/${role}/${t.path}`} className="nav__tab">
+          <Icon name={t.icon} className="nav__icon" />
           <span className="M">{tr(t.label)}</span>
         </NavLink>
       ))}

@@ -1,4 +1,5 @@
 import { memo, useState } from 'react';
+import { RoleGuide } from '../../app/Guide';
 import { Band, Bar, Chevron, Expander, Label, PillButton, ScreenHeader, SectionHead, Segmented, StatStrip, Title, RowNum, cx } from '../../design/primitives';
 import { TrackOval } from '../../design/TrackOval';
 import {
@@ -40,6 +41,8 @@ export function AthleteToday() {
       <ScreenHeader label="Tue 20.10 — Lane 04" initials={user?.initials ?? 'AR'}>
         <Title lines={['Track', 'Day.']} />
       </ScreenHeader>
+
+      <RoleGuide role="athlete" />
 
       <CheckIn />
 

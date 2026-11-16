@@ -6,10 +6,14 @@ import { prefersReducedMotion } from '../../lib/motion';
 import { useCurrentUser, useStore } from '../../state/store';
 import { useT } from '../../i18n';
 import { LangSwitch } from '../../design/LangSwitch';
+import { Icon, type IconName } from '../../design/Icon';
+import { CAUSE } from '../../app/steps';
 import { authenticate, findByPhone, normalisePhone, validateRegistration } from './auth';
 
 const phoneOf = (users: User[], role: Role) => users.find((u) => u.role === role && u.phone)?.phone ?? '';
 import './signin.css';
+
+const ROLE_ICON: Record<Role, IconName> = { athlete: 'run', coach: 'people', guardian: 'child', district: 'flag', board: 'medal' };
 
 const LANE_A = 'M -30 300 C 70 300 110 140 210 122 S 360 52 430 40';
 const LANE_B = 'M -30 350 C 90 350 140 190 240 172 S 380 104 430 92';
@@ -121,7 +125,7 @@ export function SignIn() {
             <span>Lead.</span>
           </span>
         </h1>
-
+        <p className="si__cause">{t(CAUSE)}</p>
       </div>
 
       <form className="si__sheet" onSubmit={submit} noValidate>
@@ -144,6 +148,7 @@ export function SignIn() {
                   onClick={() => pickRole(r)}
                 >
                   <RowNum n={i + 1} />
+                  <Icon name={ROLE_ICON[r]} className="si__roleicon" />
                   <span className="row__main">
                     <span className="row__name">{t(ROLE_META[r].label)}</span>
                   </span>

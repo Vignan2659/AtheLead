@@ -284,3 +284,26 @@ body:has(.si) {
   color: #fff;
 }
 
+
+/* ---------- Cause and role pictures ---------- */
+.si__cause {
+  position: relative;
+  z-index: 1;
+  margin: 14px 0 0;
+  max-width: 34ch;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: #fff;
+}
+.si__roleicon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  color: var(--cobalt);
+  transition: color 300ms var(--ease);
+}
+.si__role[aria-pressed='true'] .si__roleicon {
+  color: #fff;
+}
+.si__role { grid-template-columns: 38px 24px 1fr auto; }

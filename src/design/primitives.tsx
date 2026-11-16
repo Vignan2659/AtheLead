@@ -106,7 +106,9 @@ export function StatStrip({ items, size = 'md' }: { items: Stat[]; size?: 'md' |
     <dl className={cx('stats', size === 'lg' && 'stats--lg')}>
       {items.map((s) => (
         <div className="stats__cell" key={s.label}>
-          <dd className={cx('D stats__val', s.tone && `tone-${s.tone}`)}>{tNode(t, s.value)}</dd>
+          <dd className={cx('D stats__val', size === 'md' && String(s.value).length >= 5 && 'stats__val--long', s.tone && `tone-${s.tone}`)}>
+            {tNode(t, s.value)}
+          </dd>
           <dt className="M">{t(s.label)}</dt>
         </div>
       ))}

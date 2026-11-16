@@ -1,0 +1,224 @@
+/* ---------- Step guide: cause, your part, numbered picture tiles ---------- */
+.guide {
+  border-top: 1px solid var(--ink);
+  padding-top: 16px;
+  padding-bottom: 18px;
+}
+.guide__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.guide__head--steps {
+  margin-top: 18px;
+}
+.guide__toggle {
+  min-height: 44px;
+  padding: 0 0 0 12px;
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.guide__cause {
+  margin: 2px 0 0;
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.guide__part {
+  margin: 10px 0 0;
+  font-size: 14.5px;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+.guide__title {
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+}
+.guide__listen {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+.guide__listen svg {
+  width: 18px;
+  height: 18px;
+}
+.guide__steps {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.guide__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'n icon' 'name name' 'text text';
+  align-items: center;
+  gap: 6px 8px;
+  height: 100%;
+  min-height: 132px;
+  padding: 12px 12px 14px;
+  border: 1px solid var(--ink);
+  border-radius: 14px;
+  background: var(--chalk);
+  color: var(--ink);
+  align-content: start;
+  transition: transform var(--t-press) var(--ease), background var(--t-fade) var(--ease);
+}
+.guide__step:active {
+  transform: scale(0.98);
+}
+.guide__n {
+  grid-area: n;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--cobalt);
+}
+.guide__icon {
+  grid-area: icon;
+  justify-self: end;
+  width: 30px;
+  height: 30px;
+  color: var(--cobalt);
+}
+.guide__name {
+  grid-area: name;
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+.guide__text {
+  grid-area: text;
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+.guide__step {
+  min-width: 0;
+}
+.guide__step.is-here {
+  background: var(--ink);
+  color: #fff;
+}
+.guide__step.is-here .guide__n,
+.guide__step.is-here .guide__icon {
+  color: #fff;
+}
+.guide__step.is-here .guide__text {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* ---------- Step strip above every screen ---------- */
+.steps {
+  padding: 10px var(--gutter) 0;
+}
+.steps__dots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 4px;
+}
+.steps__dots li {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--rule);
+}
+.steps__dots li.is-done {
+  background: var(--ink);
+}
+.steps__dots li.is-here {
+  background: var(--coral);
+}
+.steps__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.steps__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--ink);
+}
+.steps__icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  color: var(--cobalt);
+}
+.steps__all {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Next step, at the foot of every screen ---------- */
+.nextstep {
+  padding-top: 20px;
+  padding-bottom: 8px;
+}
+.nextstep__go {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 72px;
+  padding: 12px 18px;
+  border-radius: 18px;
+  background: var(--ink);
+  color: #fff;
+  transition: transform var(--t-press) var(--ease);
+}
+.nextstep__go:active {
+  transform: scale(0.98);
+}
+.nextstep__n {
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--coral);
+}
+.nextstep__icon {
+  width: 28px;
+  height: 28px;
+  flex: none;
+}
+.nextstep__main {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex: 1;
+}
+.nextstep__main .M {
+  color: rgba(255, 255, 255, 0.72);
+}
+.nextstep__name {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.nextstep__arrow {
+  font-size: 22px;
+}

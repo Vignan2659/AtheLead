@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { RoleGuide } from '../../app/Guide';
 import { SportTag } from '../../design/SportTag';
 import { BodyLine } from '../../design/BodyLine';
 import { Band, Bar, Label, PillButton, RowNum, ScreenHeader, SectionHead, Segmented, StatStrip, Title, cx } from '../../design/primitives';
@@ -55,6 +56,7 @@ export function DistrictFlags() {
   return (
     <>
       <Header lines={['Flag', 'Queue.']} />
+      <RoleGuide role="district" />
       <Band tone="panel" i={2} aria-label="Queue summary">
         <StatStrip
           items={[

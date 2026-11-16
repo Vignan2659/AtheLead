@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
+import { RoleGuide } from '../../app/Guide';
 import { SportTag } from '../../design/SportTag';
 import { Band, Bar, CountUp, Label, PillButton, RowNum, ScreenHeader, SectionHead, StatStrip, cx } from '../../design/primitives';
 import { SwipeDeck, type SwipeDeckHandle } from '../../design/SwipeDeck';
@@ -47,6 +48,8 @@ export function BoardHome() {
           </p>
         </div>
       </ScreenHeader>
+
+      <RoleGuide role="board" />
 
       <Band rule="ink" i={1} className="bd__strip">
         <StatStrip
